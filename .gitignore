@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Environment variables — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor directories
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# VS Code — ignore personal settings but keep shared extension recommendations
+.vscode/*
+!.vscode/extensions.json
+
+# Local test/scratch files
+*.local
+
+# Test coverage output
+coverage/
+
+# Build cache
+.cache/
+.parcel-cache/
+.turbo/
+
+# Vite
+vite.config.js.timestamp-*
+
+# TypeScript (if added later)
+*.tsbuildinfo
+
+# NOTE: sample_conversations.json is intentionally NOT ignored.
+# It is committed as a test fixture for local development and demos.

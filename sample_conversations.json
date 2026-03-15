@@ -1,0 +1,108 @@
+[
+  {
+    "id": "conv-001",
+    "title": "Python Sorting Help",
+    "create_time": 1710000000,
+    "update_time": 1710001000,
+    "mapping": {
+      "node-sys": {
+        "id": "node-sys",
+        "parent": null,
+        "children": ["node-1"],
+        "message": {
+          "author": { "role": "system" },
+          "content": { "parts": ["You are a helpful assistant."] }
+        }
+      },
+      "node-1": {
+        "id": "node-1",
+        "parent": "node-sys",
+        "children": ["node-2"],
+        "message": {
+          "author": { "role": "user" },
+          "content": { "parts": ["How do I sort a list in Python?"] }
+        }
+      },
+      "node-2": {
+        "id": "node-2",
+        "parent": "node-1",
+        "children": ["node-3"],
+        "message": {
+          "author": { "role": "assistant" },
+          "content": { "parts": ["You can sort a list in Python using the built-in `sort()` method or the `sorted()` function.\n\n```python\n# In-place sort\nmy_list = [3, 1, 4, 1, 5]\nmy_list.sort()\n\n# Returns a new sorted list\nsorted_list = sorted(my_list)\n```\n\nUse `reverse=True` for descending order."] }
+        }
+      },
+      "node-3": {
+        "id": "node-3",
+        "parent": "node-2",
+        "children": [],
+        "message": {
+          "author": { "role": "user" },
+          "content": { "parts": ["What about sorting a list of dictionaries by a key?"] }
+        }
+      },
+      "node-4": {
+        "id": "node-4",
+        "parent": "node-3",
+        "children": [],
+        "message": {
+          "author": { "role": "assistant" },
+          "content": { "parts": ["Use a lambda as the `key` argument:\n\n```python\npeople = [\n  {\"name\": \"Alice\", \"age\": 30},\n  {\"name\": \"Bob\", \"age\": 25}\n]\n\n# Sort by age\npeople.sort(key=lambda x: x[\"age\"])\n\n# Or with sorted()\nsorted_people = sorted(people, key=lambda x: x[\"age\"])\n```"] }
+        }
+      }
+    }
+  },
+  {
+    "id": "conv-002",
+    "title": "React useEffect Question",
+    "create_time": 1710100000,
+    "update_time": 1710101500,
+    "mapping": {
+      "node-sys": {
+        "id": "node-sys",
+        "parent": null,
+        "children": ["node-1"],
+        "message": {
+          "author": { "role": "system" },
+          "content": { "parts": ["You are a helpful assistant."] }
+        }
+      },
+      "node-1": {
+        "id": "node-1",
+        "parent": "node-sys",
+        "children": ["node-2"],
+        "message": {
+          "author": { "role": "user" },
+          "content": { "parts": ["When does useEffect run in React?"] }
+        }
+      },
+      "node-2": {
+        "id": "node-2",
+        "parent": "node-1",
+        "children": ["node-3"],
+        "message": {
+          "author": { "role": "assistant" },
+          "content": { "parts": ["`useEffect` runs after every render by default. You control when it re-runs using the dependency array:\n\n```jsx\n// Runs after every render\nuseEffect(() => { ... });\n\n// Runs only once on mount\nuseEffect(() => { ... }, []);\n\n// Runs when `value` changes\nuseEffect(() => { ... }, [value]);\n```"] }
+        }
+      },
+      "node-3": {
+        "id": "node-3",
+        "parent": "node-2",
+        "children": ["node-4"],
+        "message": {
+          "author": { "role": "user" },
+          "content": { "parts": ["How do I clean up inside useEffect?"] }
+        }
+      },
+      "node-4": {
+        "id": "node-4",
+        "parent": "node-3",
+        "children": [],
+        "message": {
+          "author": { "role": "assistant" },
+          "content": { "parts": ["Return a cleanup function:\n\n```jsx\nuseEffect(() => {\n  const timer = setInterval(() => console.log('tick'), 1000);\n\n  return () => clearInterval(timer); // cleanup on unmount\n}, []);\n```\n\nReact calls this before the component unmounts or before the effect runs again."] }
+        }
+      }
+    }
+  }
+]
