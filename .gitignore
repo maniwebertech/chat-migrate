@@ -54,3 +54,6 @@ vite.config.js.timestamp-*
 
 # NOTE: sample_conversations.json is intentionally NOT ignored.
 # It is committed as a test fixture for local development and demos.
+
+playwright-report/
+test-results/
