@@ -22,7 +22,7 @@ The fastest end-to-end test. No API key needed.
 
 **Steps:**
 
-1. Run the app — `npm run dev` → open [http://localhost:5173](http://localhost:5173)
+1. Open [https://chat-migrate.vercel.app](https://chat-migrate.vercel.app) — or run locally with `npm run dev` → [http://localhost:5173](http://localhost:5173)
 2. **Source** → click **ChatGPT**
 3. **Target** → click **JSON**
 4. Upload `sample_conversations.json`

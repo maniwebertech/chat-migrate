@@ -11,10 +11,13 @@
 
 **Move your AI conversations between ChatGPT and Claude — no server required.**
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-chat--migrate.vercel.app-black?logo=vercel)](https://chat-migrate.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 [![Made with React](https://img.shields.io/badge/Made%20with-React%2018-61dafb?logo=react)](https://react.dev)
 [![Built with Vite](https://img.shields.io/badge/Built%20with-Vite-646cff?logo=vite)](https://vitejs.dev)
+
+**[Try it live → chat-migrate.vercel.app](https://chat-migrate.vercel.app)**
 
 ---
 
@@ -70,6 +73,8 @@ Visit the hosted version at:
 https://chatmigrate.app
 ```
 
+**[Open the app → https://chat-migrate.vercel.app](https://chat-migrate.vercel.app)**
+
 No installation required. Your browser does everything.
 
 ### Run locally
@@ -77,7 +82,7 @@ No installation required. Your browser does everything.
 If you prefer to run it yourself:
 
 ```bash
-git clone https://github.com/your-org/chat-migrate.git
+git clone https://github.com/maniwebertech/chat-migrate.git
 cd chat-migrate
 npm install
 npm run dev
