@@ -175,6 +175,32 @@ chat-migrate/
 
 ---
 
+## Testing
+
+### Try it immediately — no real export needed
+
+Two sample files are included so you can test the full flow right away:
+
+| File | Simulates | Chats |
+|---|---|---|
+| [`sample_conversations.json`](./sample_conversations.json) | ChatGPT export | Python Sorting Help, React useEffect Question |
+| [`sample_claude_conversations.json`](./sample_claude_conversations.json) | Claude.ai export | JavaScript Async/Await, CSS Grid vs Flexbox, Git Rebase vs Merge |
+
+Upload either file in the app to test the complete migration flow without waiting for your real export.
+
+**→ Full testing walkthrough: [TESTING.md](./TESTING.md)**
+
+### Automated tests
+
+```bash
+npm test              # Vitest unit tests (14 tests, ~3s)
+npm run test:e2e      # Playwright E2E tests (Chromium + Firefox)
+npm run test:ui       # Vitest with visual UI
+npm run test:e2e:ui   # Playwright with interactive browser UI
+```
+
+---
+
 ## Contributing
 
 Contributions are very welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines on reporting bugs, requesting features, and submitting pull requests.

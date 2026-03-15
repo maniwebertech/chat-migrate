@@ -1,0 +1,110 @@
+[
+  {
+    "uuid": "a1b2c3d4-0001-0001-0001-000000000001",
+    "name": "JavaScript Async Await",
+    "created_at": "2024-03-10T09:15:00Z",
+    "updated_at": "2024-03-10T09:22:00Z",
+    "chat_messages": [
+      {
+        "uuid": "msg-001",
+        "sender": "human",
+        "text": "Can you explain async/await in JavaScript?",
+        "created_at": "2024-03-10T09:15:00Z"
+      },
+      {
+        "uuid": "msg-002",
+        "sender": "assistant",
+        "text": "`async/await` is syntactic sugar over Promises that makes asynchronous code look synchronous.\n\n```js\nasync function fetchUser(id) {\n  const res = await fetch(`/api/users/${id}`);\n  const user = await res.json();\n  return user;\n}\n```\n\n- `async` marks a function as asynchronous — it always returns a Promise.\n- `await` pauses execution inside the function until the Promise resolves.\n- Wrap in `try/catch` to handle errors.",
+        "created_at": "2024-03-10T09:15:30Z"
+      },
+      {
+        "uuid": "msg-003",
+        "sender": "human",
+        "text": "How do I run multiple async calls in parallel?",
+        "created_at": "2024-03-10T09:18:00Z"
+      },
+      {
+        "uuid": "msg-004",
+        "sender": "assistant",
+        "text": "Use `Promise.all()` to run them in parallel instead of one after another:\n\n```js\n// Sequential (slow — waits for each)\nconst a = await fetchA();\nconst b = await fetchB();\n\n// Parallel (fast — both start at once)\nconst [a, b] = await Promise.all([fetchA(), fetchB()]);\n```\n\n`Promise.all` rejects immediately if any promise fails. Use `Promise.allSettled` if you want all results regardless of failures.",
+        "created_at": "2024-03-10T09:18:45Z"
+      },
+      {
+        "uuid": "msg-005",
+        "sender": "human",
+        "text": "What is Promise.allSettled useful for?",
+        "created_at": "2024-03-10T09:21:00Z"
+      },
+      {
+        "uuid": "msg-006",
+        "sender": "assistant",
+        "text": "`Promise.allSettled` is useful when you want to run multiple independent operations and handle each result separately — even if some fail.\n\n```js\nconst results = await Promise.allSettled([\n  fetch('/api/users'),\n  fetch('/api/posts'),\n  fetch('/api/comments'),\n]);\n\nresults.forEach(result => {\n  if (result.status === 'fulfilled') {\n    console.log('Success:', result.value);\n  } else {\n    console.error('Failed:', result.reason);\n  }\n});\n```\n\nPerfect for dashboards where partial data is still useful.",
+        "created_at": "2024-03-10T09:22:00Z"
+      }
+    ]
+  },
+  {
+    "uuid": "a1b2c3d4-0002-0002-0002-000000000002",
+    "name": "CSS Grid vs Flexbox",
+    "created_at": "2024-03-11T14:00:00Z",
+    "updated_at": "2024-03-11T14:10:00Z",
+    "chat_messages": [
+      {
+        "uuid": "msg-007",
+        "sender": "human",
+        "text": "When should I use CSS Grid vs Flexbox?",
+        "created_at": "2024-03-11T14:00:00Z"
+      },
+      {
+        "uuid": "msg-008",
+        "sender": "assistant",
+        "text": "Simple rule of thumb:\n\n- **Flexbox** → one dimension (a row OR a column)\n- **Grid** → two dimensions (rows AND columns)\n\n**Use Flexbox for:**\n- Navigation bars\n- Button groups\n- Centering a single item\n- Any layout that flows in one direction\n\n**Use Grid for:**\n- Page layouts\n- Card grids\n- Anything with alignment across both axes",
+        "created_at": "2024-03-11T14:01:00Z"
+      },
+      {
+        "uuid": "msg-009",
+        "sender": "human",
+        "text": "Can I nest them?",
+        "created_at": "2024-03-11T14:05:00Z"
+      },
+      {
+        "uuid": "msg-010",
+        "sender": "assistant",
+        "text": "Absolutely — and you should. A common pattern:\n\n```css\n/* Outer page layout with Grid */\n.page {\n  display: grid;\n  grid-template-columns: 250px 1fr;\n  grid-template-rows: 60px 1fr;\n}\n\n/* Inner nav items with Flexbox */\n.navbar {\n  display: flex;\n  align-items: center;\n  gap: 1rem;\n}\n```\n\nGrid for the macro layout, Flexbox for the micro components inside it. They complement each other perfectly.",
+        "created_at": "2024-03-11T14:06:00Z"
+      }
+    ]
+  },
+  {
+    "uuid": "a1b2c3d4-0003-0003-0003-000000000003",
+    "name": "Git Rebase vs Merge",
+    "created_at": "2024-03-12T11:30:00Z",
+    "updated_at": "2024-03-12T11:45:00Z",
+    "chat_messages": [
+      {
+        "uuid": "msg-011",
+        "sender": "human",
+        "text": "What is the difference between git rebase and git merge?",
+        "created_at": "2024-03-12T11:30:00Z"
+      },
+      {
+        "uuid": "msg-012",
+        "sender": "assistant",
+        "text": "Both integrate changes from one branch into another — but they rewrite history differently.\n\n**Merge** creates a new \"merge commit\" that joins two branch histories:\n```\n      A---B---C  feature\n     /         \\\nmain            M  ← merge commit\n```\nHistory is preserved exactly as it happened.\n\n**Rebase** replays your commits on top of the target branch — no merge commit:\n```\n              A'--B'--C'  feature (rebased)\n             /\nmain---D---E\n```\nHistory is linear and clean, but the commits are rewritten (new hashes).",
+        "created_at": "2024-03-12T11:31:00Z"
+      },
+      {
+        "uuid": "msg-013",
+        "sender": "human",
+        "text": "Which one should I use?",
+        "created_at": "2024-03-12T11:40:00Z"
+      },
+      {
+        "uuid": "msg-014",
+        "sender": "assistant",
+        "text": "General rule:\n\n- **Rebase** your feature branch onto main before opening a PR — keeps the branch up to date with a clean history.\n- **Merge** when closing a PR into main — preserves the full context of what happened.\n\nGolden rule of rebasing: **never rebase commits that have been pushed to a shared branch**. Rewriting public history confuses everyone pulling from it.",
+        "created_at": "2024-03-12T11:42:00Z"
+      }
+    ]
+  }
+]
